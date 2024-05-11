@@ -2,17 +2,40 @@
 #include "Graph.hpp"
 #include <iostream>
 
-#include "Graph.hpp"
+
 using namespace std;
-namespace ariel{
+using namespace ariel;
 
+Graph::Graph() {}
+Graph::~Graph() {}
 
-
-Graph::Graph(vector<vector<int> > matrix1, size_t v1, bool isDirected1)
+//chek if the mat is valid
+bool Graph::isvalid(const std::vector<std::vector<int>>& mat)
 {
-    this->matrix = matrix1;
-    this->v = v1;
-    this->isDirected = isDirected1;
-    this->type_graph = 0;
+    if(mat.empty()){
+   
+        return false;
+    }
+    else{
+        size_t size = mat.size();
+        for (const auto& row : mat) {
+            for(int i = 0 ; i<mat.size();i++)
+                if (row.size() != size) {
+                    return false;
+                }
+            }
+    }
+    return true;
 }
+//send invalid the matrix and if true, load else, throw invalid gragh
+void Graph::loadGraph(const vector<vector<int> > &mat)
+{
+    if(isvalid(mat)){
+        this->Matrix = mat;
+    }
+    else{
+        throw std::invalid_argument("invalid Matrix");
+    }
 }
+
+

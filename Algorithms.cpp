@@ -1,2 +1,2 @@
-// 206971962 / kaufmanlinoy@gmail.com
+// 206971962 / kaufmanlinoy@gm
 #include <iostream>

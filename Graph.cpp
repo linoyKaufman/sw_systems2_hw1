@@ -57,3 +57,16 @@
         }
         cout << "Graph with " << numVertices << " vertices and " << numEdges << " edges." << endl;
     }
+    std::vector<std::size_t> Graph::getNeighbors(std::size_t node) const {
+        std::vector<std::size_t> neighbors;
+        const std::vector<int>& row = Matrix[node]; // Access the row corresponding to the node
+
+        // Iterate over the row to find the neighbors (non-zero entries)
+        for (std::size_t i = 0; i < row.size(); ++i) {
+            if (row[i] != 0) {
+                neighbors.push_back(i); // Add the index to the neighbors vector
+            }
+        }
+
+        return neighbors;
+    }

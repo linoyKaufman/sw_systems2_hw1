@@ -22,6 +22,7 @@ namespace ariel {
             return this->Matrix.size();}
         std::vector<std::pair<size_t , std::pair<size_t , int>>> getEdges() const;
         std::vector<std::size_t> getNeighbors(std::size_t node) const ;
+        //std::vector<std::size_t> Graph::getNeighbors(std::size_t node) const ;
         bool isEdge(size_t from, size_t to) const {
             return Matrix[from][to] != 0;
         }

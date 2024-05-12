@@ -43,7 +43,7 @@
         vector<vector<int>> mat = graph.getMatrix();
         size_t numVertices = mat.size();
         vector<bool> visited (numVertices, false);
-        vector<int> parent (numVertices, -1);
+        vector<size_t> parent (numVertices, (size_t)-1);
 
         stack<size_t> stack;
         //

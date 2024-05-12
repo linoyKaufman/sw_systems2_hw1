@@ -13,8 +13,8 @@ namespace ariel {
 
     public:
   
-    Graph() noexcept; // הגדרת בנאי מוחלט עם noexcept
-    ~Graph() noexcept; // כאן אתה יכול להוסיף את noexcept גם להרחבה של ההריסה, אם רק היא לא גרם לך בעיה אחרת
+    Graph() noexcept; 
+    ~Graph() noexcept; 
         bool isvalid(const std::vector<std::vector<int>> &mat);
         void loadGraph(const std::vector<std::vector<int>> &matrix);
         void printGraph() const;

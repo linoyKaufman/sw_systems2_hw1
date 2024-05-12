@@ -134,7 +134,7 @@
         return path;
     }
 
-    int Algorithms::isBipartite(const Graph &graph){
+    string Algorithms::isBipartite(const Graph &graph){
         size_t num = graph.size();
         vector<size_t> colored(num,-1);//-1 not colored, 0 - colored 
         queue<size_t> queue;
@@ -159,14 +159,14 @@
                         queue.push(neighbor);
                     }
                     else if(colored[neighbor]==colored[current]){
-                        return 0;
+                        return "0";
                     }
                 }
                 
             }
             
         }
-        return 1;
+        return "The graph is bipartite";
     }
 
 

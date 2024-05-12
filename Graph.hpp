@@ -1,5 +1,6 @@
 // 206971962 / kaufmanlinoy@gmail.com
-
+#ifndef GRAPH_HPP
+#define GRAPH_HPP
 #include <vector>
 #include <utility>
 using namespace std;
@@ -27,3 +28,4 @@ namespace ariel {
     };
     using StartNode = size_t;
 }
+#endif

@@ -6,7 +6,7 @@
 // doctest.h - the lightest feature-rich C++ single-header testing framework for unit tests and TDD
 //
 // Copyright (c) 2016-2023 Viktor Kirilov
-//
+//     
 // Distributed under the MIT Software License
 // See accompanying file LICENSE.txt or copy at
 // https://opensource.org/licenses/MIT

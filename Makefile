@@ -1,12 +1,19 @@
 #206971962 / kaufmanlinoy@gmail.com
 
+CXX=clang++
+CXXFLAGS=-std=c++11 -Werror -Wsign-conversion
+VALGRIND_FLAGS=-v --leak-check=full --show-leak-kinds=all  --error-exitcode=99
+
+SOURCES=Graph.cpp Algorithms.cpp TestCounter.cpp Test.cpp
+OBJECTS=$(subst .cpp,.o,$(SOURCES))
+all: run demo test
 run: demo
 	./$^
 
-demo: Demo.o $(OBJECTS)
+demo: Demo.o $(filter-out TestCounter.o Test.o,$(OBJECTS))
 	$(CXX) $(CXXFLAGS) $^ -o demo
 
-test: TestCounter.o Test.o $(OBJECTS)
+test: TestCounter.o Test.o $(filter-out Demo.o,$(OBJECTS))
 	$(CXX) $(CXXFLAGS) $^ -o test
 
 tidy:
@@ -21,3 +28,7 @@ valgrind: demo test
 
 clean:
 	rm -f *.o demo test
+
+
+
+	

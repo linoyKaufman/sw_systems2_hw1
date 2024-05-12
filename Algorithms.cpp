@@ -133,3 +133,38 @@ string Algorithms::shortestPath (const Graph &graph, size_t start, size_t end){
     }
     return path;
 }
+
+string Algorithms::isBipartite(const Graph &graph){
+    size_t num = graph.size();
+    vector<size_t> colored(num,-1);//-1 not colored, 0 - colored 
+    queue<size_t> queue;
+
+
+    for(size_t i =0;i<num;i++){
+        if (colored[i]==-1)
+        {
+            queue.push(i);
+            colored[i]=0;
+        }
+        while (!queue.empty())
+        {
+            size_t current = queue.front();
+            queue.pop();
+
+            for (size_t neighbor : graph.getNeighbors(current))
+            {
+                if (colored[neighbor]==-1)
+                {
+                    colored[neighbor]=1-colored[current];//color neighbor diffrent color
+                    queue.push(neighbor);
+                }
+                else if(colored[neighbor]==colored[current]){
+                    return "graph is not bipartite";
+                }
+            }
+            
+        }
+        
+    }
+    return "graph is bipartite";
+}

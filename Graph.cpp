@@ -6,8 +6,11 @@
     using namespace std;
     using namespace ariel;
 
-    Graph::Graph() {}
-    Graph::~Graph() {}
+
+
+    Graph::Graph() noexcept {}
+    Graph::~Graph() noexcept {}
+
 
     //chek if the mat is valid
     bool Graph::isvalid(const std::vector<std::vector<int>>& mat)

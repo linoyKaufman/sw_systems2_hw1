@@ -1,5 +1,5 @@
     // 206971962 / kaufmanlinoy@gmail.com
-    #include <Algorithms.hpp>
+    #include "Algorithms.hpp"
     #include <list>
     #include "Graph.hpp"
     #include <queue>
@@ -9,7 +9,7 @@
 
     int Algorithms::isConnected (const Graph &graph)
     {
-    int Varticls =graph.size();
+    size_t Varticls =graph.size();
     vector<vector<int>> mat = graph.getMatrix();
     std::vector<bool> visited (Varticls,false);
     std::list<size_t> queue;
@@ -41,18 +41,18 @@
 
     int Algorithms::isContainsCycle(const Graph &graph){
         vector<vector<int>> mat = graph.getMatrix();
-        int numVertices = mat.size();
+        size_t numVertices = mat.size();
         vector<bool> visited (numVertices, false);
         vector<int> parent (numVertices, -1);
 
-        stack<int> stack;
+        stack<size_t> stack;
         //
-        for(int i=0; i<numVertices;i++){
+        for(size_t i=0; i<numVertices;i++){
             if(!visited[i]){
                 stack.push(i);
                 while(!stack.empty())
                 {
-                    int current = stack.top();
+                    size_t current = stack.top();
                     stack.pop();
 
                     if (visited[current])
@@ -61,7 +61,7 @@
                     }
                     visited[current]=true;
 
-                    for (int neighbor : graph.getNeighbors(current))
+                    for (size_t neighbor : graph.getNeighbors(current))
                     {
                     if (neighbor!= parent[current])
                     {
@@ -136,7 +136,7 @@
 
     string Algorithms::isBipartite(const Graph &graph){
         size_t num = graph.size();
-        vector<size_t> colored(num,-1);//-1 not colored, 0 - colored 
+        vector<size_t> colored(num,SIZE_MAX);//-1 not colored, 0 - colored 
         queue<size_t> queue;
 
 
@@ -171,7 +171,7 @@
 
 
     string Algorithms::negativeCycle(const Graph &graph){
-        if(!isContainsCycle)
+        if(isContainsCycle(graph)==1)
             return "no negative cycle";
         size_t n = graph.size();
         const vector<vector<int>> &adjMat = graph.getMatrix();

@@ -1,17 +1,18 @@
+
 CXX=clang++
-CXXFLAGS=-std=c++11 -Werror -Wsign-conversion
+CXXFLAGS=-std=c++11 -Werror -Wsign-conversion -g
 VALGRIND_FLAGS=-v --leak-check=full --show-leak-kinds=all  --error-exitcode=99
 
-SOURCES=Graph.cpp Algorithms.cpp
+SOURCES=Graph.cpp Algorithms.cpp TestCounter.cpp Test.cpp
 OBJECTS=$(subst .cpp,.o,$(SOURCES))
 
-run: test
+run: demo
 	./$^
 
 demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
 
-test: TestCounter.o Test.o $(OBJECTS)
+test: TestCounter.o Test.o $(filter-out demo.o,$(OBJECTS))
 	$(CXX) $(CXXFLAGS) $^ -o test
 
 tidy:

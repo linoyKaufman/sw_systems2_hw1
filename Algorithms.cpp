@@ -3,6 +3,7 @@
     #include <list>
     #include "Graph.hpp"
     #include <queue>
+    #include <cstdint> //cause MAX SIZE
 
     using namespace std;
     using namespace ariel;
